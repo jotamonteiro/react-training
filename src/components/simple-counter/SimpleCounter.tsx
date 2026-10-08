@@ -6,10 +6,10 @@ const SimpleCounter = (props: { title?: string; step?: number }) => {
   const step = props.step ?? 1
 
   const handleminus = () => {
-    setcount(count - step)
+    setcount(count => count - step)
   };
   const handlemore = () => {
-    setcount(count + step)
+    setcount(count => count + step)
   };
   const tare = () => {
     setcount(0);

@@ -6,7 +6,7 @@ function App() {
     <>
       <div className="first">
         <h1>Primeiros Passos</h1>
-        <SimpleCounter title="Hello Contador" />
+        <SimpleCounter title="Contador" />
       </div>
     </>
   );
