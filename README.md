@@ -1,75 +1,73 @@
-# React + TypeScript + Vite
+# React-Learning
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de estudos para praticar desenvolvimento front-end com React e TypeScript. Atualmente, a aplicação exibe um contador simples com controles para incrementar, decrementar e zerar o valor.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- TypeScript
+- Vite
+- ESLint
 
-## React Compiler
+## Pré-requisitos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js e npm instalados.
 
-## Expanding the ESLint configuration
+## Como executar
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone o repositório e acesse a pasta do projeto.
+2. Instale as dependências:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   ```bash
+   npm install
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. Inicie o servidor de desenvolvimento:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+   ```bash
+   npm run dev
+   ```
 
+4. Abra no navegador o endereço local informado pelo Vite no terminal.
+
+## Scripts disponíveis
+
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento com atualização automática. |
+| `npm run lint` | Executa o ESLint para verificar o código. |
+| `npm run build` | Verifica os tipos com TypeScript e gera a versão de produção em `dist/`. |
+| `npm run preview` | Serve localmente a versão de produção gerada. |
+
+Para visualizar a versão de produção, gere-a primeiro com `npm run build` e depois execute `npm run preview`.
+
+## Contador
+
+O componente `SimpleCounter` recebe duas propriedades opcionais:
+
+| Propriedade | Tipo | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `title` | `string` | `"Contador Simples"` | Texto exibido como título do contador. |
+| `step` | `number` | `1` | Quantidade somada ou subtraída a cada clique. |
+
+Exemplo de uso:
+
+```tsx
+<SimpleCounter title="Meu contador" step={5} />
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Nesse exemplo, os botões de soma e subtração alteram o valor em intervalos de cinco. O botão de zerar redefine o contador para `0`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Estrutura principal
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+src/
+├── components/
+│   └── simple-counter/
+│       ├── SimpleCounter.tsx
+│       └── SimpleCounter.css
+├── App.tsx
+├── App.css
+├── index.css
+└── main.tsx
 ```
