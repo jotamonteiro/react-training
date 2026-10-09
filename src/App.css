@@ -167,7 +167,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;
@@ -180,5 +180,30 @@
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+}
+
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+#conteiner-counter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+SimpleCounter {
+  max-width: max-content;
+}
+
+@media (max-width: 700px) {
+  #conteiner-counter {
+    grid-template-columns: 1fr;
   }
 }

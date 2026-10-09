@@ -3,13 +3,13 @@ import "./SimpleCounter.css";
 
 const SimpleCounter = (props: { title?: string; step?: number }) => {
   const [count, setcount] = useState(0);
-  const step = props.step ?? 1
+  const step = props.step ?? 1;
 
   const handleminus = () => {
-    setcount(count => count - step)
+    setcount((count) => count - step);
   };
   const handlemore = () => {
-    setcount(count => count + step)
+    setcount((count) => count + step);
   };
   const tare = () => {
     setcount(0);
